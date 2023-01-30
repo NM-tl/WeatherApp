@@ -1,0 +1,54 @@
+.weather-side {
+    background: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+    color: white;
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 0 30px 25px;
+    border-radius: 25px;
+    z-index: 1;
+    box-shadow:  -20px 20px 60px #bebebe,
+                 20px -20px 60px #ffffff;
+    line-height: 1.25em;
+}
+
+.weather-location, .weather-info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.weather-location h4 {
+    font-size: 36px;
+}
+
+.weather-location h6 {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+}
+
+.weather-location span {
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.weather-location h4, .weather-location h6{
+    margin: 0;
+}
+
+.weather-info h1 {
+    margin: 30px 0 0 0;
+}
+
+.weather-info h1 {
+    font-size: 4em;
+    font-weight: 700;
+}
+
+.weather-info h4 {
+    font-size: 20px;
+}

@@ -1,0 +1,5 @@
+.container {
+    width: min(100% - 30px, 840px);
+    margin-inline: auto;
+    display: flex;
+}
