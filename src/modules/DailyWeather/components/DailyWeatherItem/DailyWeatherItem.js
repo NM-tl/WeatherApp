@@ -7,11 +7,7 @@ import 'moment-timezone';
 export default function DailyWeatherItem() {
 
   const data = useContext(DataContext);
-
-  console.log(data.data.daily)
-
-  let icon = 'http://openweathermap.org/img/wn//' + data.data.current.weather[0].icon + '@4x.png';
-
+  
   return (
     <>
       { data.data.daily.map((day) => {
