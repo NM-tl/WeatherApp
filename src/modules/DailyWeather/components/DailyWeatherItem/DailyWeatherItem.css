@@ -1,0 +1,38 @@
+.weather-week__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 125px;
+    height: 120px;
+    box-shadow: 0 0 20px -5px rgb(0 0 0 / 15%);
+    border-radius: 10px;
+    background: transparent;
+    justify-content: space-evenly;
+    margin: 8px;
+}
+
+.weather-week__item h6 {
+    font-size: 12px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.item-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.item-row__title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.item-row__value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.item-icon {
+    width: 36px;
+}
