@@ -7,6 +7,8 @@ import 'moment-timezone';
 export default function DailyWeatherItem() {
 
   const data = useContext(DataContext);
+
+  console.log(data)
   
   return (
     <>
@@ -30,22 +32,18 @@ export default function DailyWeatherItem() {
       }
 
     {/* <div className='weather-week__item'>
-        <WbCloudyOutlinedIcon />
         <h6>Tue</h6>
         <span>3°C</span>
     </div>
         <div className='weather-week__item'>
-        <ThunderstormOutlinedIcon />
         <h6>Wed</h6>
         <span>4°C</span>
     </div>
         <div className='weather-week__item'>
-        <InvertColorsOutlinedIcon />
         <h6>Thu</h6>
         <span>5°C</span>
     </div>
         <div className='weather-week__item'>
-        <WbSunnyOutlinedIcon />
         <h6>Fri</h6>
         <span>7°C</span>
     </div> */}

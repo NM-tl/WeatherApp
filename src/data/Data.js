@@ -2,7 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 
 export const DataContext = createContext();
 
-export const DataContextProvider = ({children}) => {
+export const DataContextProvider = ({ children }) => {
 
     // const [geo, setGeo] = useState({});
     const [data, setData] = useState({});
