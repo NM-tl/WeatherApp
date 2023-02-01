@@ -1,18 +1,15 @@
 import React, { useContext } from 'react';
 import './DailyWeatherItem.css';
-import { DataContext } from '../../../../data/Data';
 import Moment from 'react-moment';
 import 'moment-timezone';
 
 export default function DailyWeatherItem() {
 
-  const data = useContext(DataContext);
-
-  console.log(data)
+  // const data = useContext(DataContext);
   
   return (
     <>
-      { data.data.daily.map((day) => {
+      {/* { data.data.daily.map((day) => {
         let dateToFormat = day.dt;
         let icon = 'http://openweathermap.org/img/wn//' + day.weather[0].icon + '@2x.png';
 
@@ -29,9 +26,9 @@ export default function DailyWeatherItem() {
           </div>
         </div>
       })
-      }
+      } */}
 
-    {/* <div className='weather-week__item'>
+    <div className='weather-week__item'>
         <h6>Tue</h6>
         <span>3°C</span>
     </div>
@@ -46,7 +43,7 @@ export default function DailyWeatherItem() {
         <div className='weather-week__item'>
         <h6>Fri</h6>
         <span>7°C</span>
-    </div> */}
+    </div>
     </>
   )
 }

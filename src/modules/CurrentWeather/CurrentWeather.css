@@ -52,3 +52,13 @@
 .weather-info h4 {
     font-size: 20px;
 }
+
+@media (max-width: 767px) { 
+    .weather-side {
+        width: 100%;
+        height: 200px;
+        padding: 10px 0 10px 0px;
+        align-items: center;
+        justify-content: center;
+    }
+ }

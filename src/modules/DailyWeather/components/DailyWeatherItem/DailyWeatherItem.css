@@ -35,4 +35,6 @@
 
 .item-icon {
     width: 36px;
+    background: #72EDF2;
+    border-radius: 50px;
 }

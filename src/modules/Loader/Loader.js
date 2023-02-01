@@ -8,11 +8,11 @@ export default function Loader() {
         <div className='loader-content'>
             <h1>UWeather<TokenOutlinedIcon style={{fontSize: '55px'}}/></h1>
         </div>
-        <div class="frame">
-          <div class="center">
-              <div class="dot-1"></div>
-              <div class="dot-2"></div>
-              <div class="dot-3"></div>
+        <div className='frame'>
+          <div className="center">
+              <div className="dot-1"></div>
+              <div className="dot-2"></div>
+              <div className="dot-3"></div>
           </div>
         </div>
     </div>
