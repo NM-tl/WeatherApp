@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import './DailyWeather.css';
 
 import EditLocationAltOutlinedIcon from '@mui/icons-material/EditLocationAltOutlined';
@@ -12,14 +12,10 @@ export default function DailyWeather() {
   // const data = useContext(DataContext);
   // const { humidity, pressure, wind_speed } = data.data.current;
 
-  const [staticWeatherInfo, setStaticWeatherInfo] = useState({
+  const staticWeatherInfo = {
     humidity: 1007,
     pressure: 89,
     wind_speed: 2.5,
-  })
-
-  const toggleLocationHandler = () => {
-    let city = prompt('Enter your City pls:')
   }
 
   return (
@@ -45,7 +41,7 @@ export default function DailyWeather() {
           <DailyWeatherItem />
         </div>
         <div className='toggle-container'>
-          <button onClick={toggleLocationHandler} className='toggle-location'>Change location <EditLocationAltOutlinedIcon style={{fontSize: '16px'}}/></button>
+          <button className='toggle-location'>Change location <EditLocationAltOutlinedIcon style={{fontSize: '16px'}}/></button>
         </div>
     </div>
   )

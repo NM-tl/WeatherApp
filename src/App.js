@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from './common/Layout/Layout';
 import Container from './common/Container/Container';
 import CurrentWeather from './modules/CurrentWeather/CurrentWeather';
@@ -25,7 +25,7 @@ function App() {
 
       const getWeather = async () => {
       
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=50.5020416&lon=30.4545792&exclude=hourly,minutely&units=metric&appid=8a97a40061eb1c0b2990430bed7e799`).then(res => res.json()).then(data => {
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=50.5020416&lon=30.4545792&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
         setData(data);
         })
     };

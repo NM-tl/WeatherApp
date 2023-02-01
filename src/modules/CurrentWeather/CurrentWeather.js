@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React from 'react';
 import './CurrentWeather.css';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
-// import { DataContext } from '../../weatherContext';
 
 export default function CurrentWeather() {
 
@@ -11,14 +10,14 @@ export default function CurrentWeather() {
   // const { timezone } = data.data;
   // const date = new Date();  
 
-  const [staticWeather, setStaticWeather] = useState({
+  const staticWeather = {
     day: 'Tuesday',
     date: '1.02.2023',
     city: 'Europe/Kyiv',
     icon: 'icon',
     temp: '-2',
     description: 'clouds',
-  })
+  }
 
   // let icon = 'http://openweathermap.org/img/wn//' + data.data.current.weather[0].icon + '@4x.png';
 

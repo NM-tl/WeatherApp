@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './DailyWeatherItem.css';
-import Moment from 'react-moment';
-import 'moment-timezone';
+// import Moment from 'react-moment';
+// import 'moment-timezone';
 
 export default function DailyWeatherItem() {
 
