@@ -49,7 +49,7 @@ function App() {
     
     getWeather();
 
-    }, []);
+    }, [date]);
 
   return (
     !loading ? 

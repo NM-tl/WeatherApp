@@ -1,7 +1,6 @@
 import React from 'react';
 import './DailyWeather.css';
 
-import EditLocationAltOutlinedIcon from '@mui/icons-material/EditLocationAltOutlined';
 import OpacityOutlinedIcon from '@mui/icons-material/OpacityOutlined';
 import WavesOutlinedIcon from '@mui/icons-material/WavesOutlined';
 import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
