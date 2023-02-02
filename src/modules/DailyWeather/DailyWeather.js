@@ -5,43 +5,38 @@ import EditLocationAltOutlinedIcon from '@mui/icons-material/EditLocationAltOutl
 import OpacityOutlinedIcon from '@mui/icons-material/OpacityOutlined';
 import WavesOutlinedIcon from '@mui/icons-material/WavesOutlined';
 import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import DailyWeatherItem from './components/DailyWeatherItem/DailyWeatherItem';
 
-export default function DailyWeather() {
+export default function DailyWeather( {data, season} ) {
 
-  // const data = useContext(DataContext);
-  // const { humidity, pressure, wind_speed } = data.data.current;
-
-  const staticWeatherInfo = {
-    humidity: 1007,
-    pressure: 89,
-    wind_speed: 2.5,
-  }
+  const pressure = data.current.pressure;
+  const humidity = data.current.humidity;
+  const wind_speed = data.current.wind_speed;
+  const ui = data.current.uvi;
 
   return (
     <div className='info-side'>
         <div className='weather-more'>
             <div className='weather-more__item'>
             <h4><OpacityOutlinedIcon style={{fontSize: '18px'}}/>PRECIPITATION</h4>
-            {/* <span>{pressure}</span> */}
-            <span>{staticWeatherInfo.pressure}</span>
+            <span>{pressure}</span>
             </div>
             <div className='weather-more__item'>
             <h4><WavesOutlinedIcon style={{fontSize: '18px'}}/>HUMIDITY</h4>
-            {/* <span>{humidity}%</span> */}
-            <span>{staticWeatherInfo.humidity}%</span>
+            <span>{Math.round(humidity)}%</span>
             </div>
             <div className='weather-more__item'>
             <h4><AirOutlinedIcon style={{fontSize: '18px'}}/>WIND</h4>
-            {/* <span>{wind_speed} km/h</span> */}
-            <span>{staticWeatherInfo.wind_speed}km/h</span>
+            <span>{Math.round(wind_speed)}km/h</span>
+            </div>
+            <div className='weather-more__item'>
+            <h4><WbSunnyIcon style={{fontSize: '18px'}}/>UV index</h4>
+            <span>{ui}</span>
             </div>
         </div>
         <div className='weather-week'>
-          <DailyWeatherItem />
-        </div>
-        <div className='toggle-container'>
-          <button className='toggle-location'>Change location <EditLocationAltOutlinedIcon style={{fontSize: '16px'}}/></button>
+          <DailyWeatherItem data = {data} season = {season}/>
         </div>
     </div>
   )

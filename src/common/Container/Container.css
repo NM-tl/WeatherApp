@@ -4,6 +4,22 @@
     display: flex;
 }
 
+.weather-side.summer, .item-icon.summer {
+  background: linear-gradient(to right, #fdc830, #f37335);
+}
+
+.weather-side.autumn, .item-icon.autumn {
+  background: linear-gradient(to right, #be93c5, #7bc6cc);
+}
+
+.weather-side.winter, .item-icon.winter {
+  background: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+}
+
+.weather-side.spring, .item-icon.spring {
+  background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+}
+
 @media (max-width: 575px) { 
     .container {
       width: unset;

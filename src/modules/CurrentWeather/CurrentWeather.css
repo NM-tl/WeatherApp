@@ -1,5 +1,4 @@
 .weather-side {
-    background: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
     color: white;
     width: 35%;
     display: flex;
@@ -60,5 +59,10 @@
         padding: 10px 0 10px 0px;
         align-items: center;
         justify-content: center;
+    }
+
+    .weather-info__icon img{
+        width: 86px;
+        height: 86px;
     }
  }

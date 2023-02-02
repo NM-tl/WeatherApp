@@ -5,48 +5,61 @@ import CurrentWeather from './modules/CurrentWeather/CurrentWeather';
 import DailyWeather from './modules/DailyWeather/DailyWeather';
 import Loader from './modules/Loader/Loader';
 import Header from './modules/Header/Header';
-// import { DataContextProvider } from './data/Data';
 
-// const API_KEY = 'baccda4f1d5019e8d22bd6c22787afb8';
-const API_KEY = '8a97a40061eb1c0b2990430bed7e7999';
+const API_KEY = 'baccda4f1d5019e8d22bd6c22787afb8';
 
 function App() {
 
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const [season, setSeason] = useState('');
+
+  const date = new Date();  
 
   useEffect(() => {
+
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }, []);
 
-  useEffect(() => {
+    let currMonthNumber = date.getMonth(); 
 
-      const getWeather = async () => {
-      
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=50.5020416&lon=30.4545792&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
+    if (currMonthNumber >= 5 && currMonthNumber <= 7) {
+      setSeason('summer');
+    } else if (currMonthNumber >= 8 && currMonthNumber <= 10) {
+      setSeason('autumn');
+    } else if (currMonthNumber >= 2 && currMonthNumber <= 4) {
+      setSeason('spring');
+    } else {
+      setSeason('winter');
+    }
+
+    const getWeather = async () => {
+
+      navigator.geolocation.getCurrentPosition((success) => {
+    
+        let {latitude, longitude } = success.coords;
+
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
+
         setData(data);
-        })
+      })
+    })    
     };
     
-        getWeather();
+    getWeather();
 
     }, []);
 
-    console.log(data)
-
   return (
     !loading ? 
-      // <DataContextProvider>
       <Layout >
         <Header />
         <Container>
-          <CurrentWeather />
-          <DailyWeather />
+          <CurrentWeather data = {data} season = {season} date = {date}/>
+          <DailyWeather data = {data} season = {season} date = {date} />
         </Container>
       </Layout> :
-      // </DataContextProvider> :
       <Loader />
   );
 }
