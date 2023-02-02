@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import Layout from './common/Layout/Layout';
 import Container from './common/Container/Container';
 import CurrentWeather from './modules/CurrentWeather/CurrentWeather';
@@ -14,7 +14,9 @@ function App() {
   const [data, setData] = useState({});
   const [season, setSeason] = useState('');
 
-  const date = new Date();  
+  const memoizedDate = useMemo(() => new Date(), [])
+
+  console.log(memoizedDate)
 
   useEffect(() => {
 
@@ -22,7 +24,7 @@ function App() {
       setLoading(false);
     }, 2000);
 
-    let currMonthNumber = date.getMonth(); 
+    let currMonthNumber = memoizedDate.getMonth(); 
 
     if (currMonthNumber >= 5 && currMonthNumber <= 7) {
       setSeason('summer');
@@ -49,15 +51,15 @@ function App() {
     
     getWeather();
 
-    }, [date]);
+    }, []);
 
   return (
     !loading ? 
       <Layout >
         <Header />
         <Container>
-          <CurrentWeather data = {data} season = {season} date = {date}/>
-          <DailyWeather data = {data} season = {season} date = {date} />
+          <CurrentWeather data = {data} season = {season} date = {memoizedDate}/>
+          <DailyWeather data = {data} season = {season} date = {memoizedDate} />
         </Container>
       </Layout> :
       <Loader />
