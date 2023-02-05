@@ -7,6 +7,7 @@ export default function Loader() {
     <div className='loader-bg'>
         <div className='loader-content'>
             <h1>UWeather<TokenOutlinedIcon style={{fontSize: '55px'}}/></h1>
+            <span>Confirm the request to receive Google data by your geolocation</span>
         </div>
         <div className='frame'>
           <div className="center">

@@ -9,7 +9,10 @@
 .loader-content {
     font-size: 25px;
     letter-spacing: 1.5px;
-    margin-top: -150px;
+    margin-top: -250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .loader-content h1 {
@@ -17,6 +20,15 @@
     align-items: center;
     -webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 	        animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    margin: 0;
+}
+
+.loader-content span {
+  -webkit-animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  font-size: 18px;
+  letter-spacing: 1.5px;
+  font-weight: 200;
 }
 
 .frame {
@@ -150,3 +162,8 @@
     }
   }
   
+  @media (max-width: 767px) { 
+    .loader-content {
+      padding: 0 20px;
+    }
+  }

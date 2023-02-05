@@ -10,9 +10,9 @@ export default function DailyWeatherItem( {data, season} ) {
       { data.daily.map((day) => {
         let dateToFormat = day.dt;
         let icon = 'http://openweathermap.org/img/wn//' + day.weather[0].icon + '@2x.png';
-
+        
         return <div className='weather-week__item'>
-          <h6>{<Moment format='dddd' unix>{dateToFormat*1000}</Moment>}</h6>
+          <h6>{<Moment format='dddd' unix>{dateToFormat}</Moment>}</h6>
           <img src={icon} alt="weather icon" className={'item-icon ' + season} />
           <div className='item-row'>
             <span className='item-row__title'>Night</span>

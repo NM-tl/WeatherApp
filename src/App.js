@@ -16,13 +16,7 @@ function App() {
 
   const memoizedDate = useMemo(() => new Date(), [])
 
-  console.log(memoizedDate)
-
   useEffect(() => {
-
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
 
     let currMonthNumber = memoizedDate.getMonth(); 
 
@@ -39,12 +33,15 @@ function App() {
     const getWeather = async () => {
 
       navigator.geolocation.getCurrentPosition((success) => {
-    
+
         let {latitude, longitude } = success.coords;
 
         fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
 
         setData(data);
+        setTimeout(() => {
+          setLoading(false);
+        }, 2000);
       })
     })    
     };

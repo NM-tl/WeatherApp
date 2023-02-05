@@ -11,6 +11,8 @@ export default function CurrentWeather( {data, season, date}) {
 
   let icon = 'http://openweathermap.org/img/wn//' + data.current.weather[0].icon + '@4x.png';
 
+  console.log(date)
+
   return (
     <div className={'weather-side ' + season}>
         <div className='weather-location'>
