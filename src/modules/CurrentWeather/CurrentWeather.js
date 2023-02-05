@@ -8,10 +8,7 @@ export default function CurrentWeather( {data, season, date}) {
   const description = data.current.weather[0].description;
   const temp = data.current.feels_like;
   const timezone = data.timezone;
-
-  let icon = 'http://openweathermap.org/img/wn//' + data.current.weather[0].icon + '@4x.png';
-
-  console.log(date)
+  const icon = 'http://openweathermap.org/img/wn//' + data.current.weather[0].icon + '@4x.png';
 
   return (
     <div className={'weather-side ' + season}>
