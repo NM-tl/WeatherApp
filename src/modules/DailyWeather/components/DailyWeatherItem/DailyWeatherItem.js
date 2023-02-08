@@ -15,11 +15,11 @@ export default function DailyWeatherItem( {data, season} ) {
           <h6>{<Moment format='dddd' unix>{dateToFormat}</Moment>}</h6>
           <img src={icon} alt="weather icon" className={'item-icon ' + season} />
           <div className='item-row'>
-            <span className='item-row__title'>Night</span>
+            <span className='item-row__title'>Night:</span>
             <span className='item-row__value'>{Math.round(day.feels_like.night)}°C</span>
           </div>
           <div className='item-row'>
-            <span className='item-row__title'>Day</span>
+            <span className='item-row__title'>Day:</span>
             <span className='item-row__value'>{Math.round(day.feels_like.night)}°C</span>
           </div>
         </div>

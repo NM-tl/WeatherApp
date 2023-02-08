@@ -21,6 +21,8 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    width: 70%;
+    justify-content: space-evenly;
 }
 
 .item-row__title {
