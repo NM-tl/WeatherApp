@@ -8,6 +8,7 @@ export default function CurrentWeather( {data, season, date}) {
   const description = data.current.weather[0].description;
   const temp = data.current.feels_like;
   const timezone = data.timezone;
+  console.log(data);
   const icon = 'http://openweathermap.org/img/wn//' + data.current.weather[0].icon + '@4x.png';
 
   return (

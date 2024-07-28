@@ -2,6 +2,8 @@
     width: min(100% - 30px, 840px);
     margin-inline: auto;
     display: flex;
+    position: relative;
+    z-index: 5;
 }
 
 .weather-side.summer, .item-icon.summer {

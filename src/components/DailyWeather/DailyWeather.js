@@ -5,7 +5,7 @@ import OpacityOutlinedIcon from '@mui/icons-material/OpacityOutlined';
 import WavesOutlinedIcon from '@mui/icons-material/WavesOutlined';
 import AirOutlinedIcon from '@mui/icons-material/AirOutlined';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import DailyWeatherItem from './components/DailyWeatherItem/DailyWeatherItem';
+import DailyWeatherItem from '../DailyWeatherItem/DailyWeatherItem';
 
 export default function DailyWeather( {data, season} ) {
 

@@ -5,6 +5,8 @@
     letter-spacing: 1.5px;
     display: flex;
     align-items: center;
+    color: white;
+    text-shadow: 2px 2px 3px black;
 }
 
 @-webkit-keyframes tracking-in-expand {

@@ -3,6 +3,8 @@ import './Layout.css';
 
 export default function Layout({ children }) {
   return (
-    <div className='page'>{children}</div>
+    <div className='page'>
+      {children}
+    </div>
   )
 }
