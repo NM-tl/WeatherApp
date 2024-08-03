@@ -1,62 +1,37 @@
-import { useEffect, useState, useMemo } from 'react';
+import React from 'react';
 import Layout from './common/Layout/Layout';
 import Container from './common/Container/Container';
-import CurrentWeather from './modules/CurrentWeather/CurrentWeather';
-import DailyWeather from './modules/DailyWeather/DailyWeather';
-import Loader from './modules/Loader/Loader';
-import Header from './modules/Header/Header';
-
-const API_KEY = 'baccda4f1d5019e8d22bd6c22787afb8';
+import CurrentWeather from './components/CurrentWeather/CurrentWeather';
+import DailyWeather from './components/DailyWeather/DailyWeather';
+import Loader from './components/Loader/Loader';
+import Header from './components/Header/Header';
+import Illustration from './components/Illustration/Illustration';
+import useBackgroundImage from './helpers/useBackgroundCity';
+import useSeason from './helpers/useSeason';
+import useWeather from './helpers/useWeather';
+const REACT_APP_API_KEY = process.env.REACT_APP_API_KEY;
 
 function App() {
+  const { season, memoizedDate } = useSeason();
+  const { loading, data } = useWeather(REACT_APP_API_KEY);
+  const [city, setCity] = React.useState('');
+  const backgroundImage = useBackgroundImage(city);
 
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState({});
-  const [season, setSeason] = useState('');
-
-  const memoizedDate = useMemo(() => new Date(), [])
-
-  useEffect(() => {
-
-    let currMonthNumber = memoizedDate.getMonth(); 
-
-    if (currMonthNumber >= 5 && currMonthNumber <= 7) {
-      setSeason('summer');
-    } else if (currMonthNumber >= 8 && currMonthNumber <= 10) {
-      setSeason('autumn');
-    } else if (currMonthNumber >= 2 && currMonthNumber <= 4) {
-      setSeason('spring');
-    } else {
-      setSeason('winter');
+  React.useEffect(() => {
+    if (data && data.timezone) {
+      const cityName = data.timezone.split('/')[1].replace('_', ' ');
+      setCity(cityName);
     }
-
-    const getWeather = async () => {
-
-      navigator.geolocation.getCurrentPosition((success) => {
-
-        let {latitude, longitude } = success.coords;
-
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}`).then(res => res.json()).then(data => {
-
-        setData(data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000);
-      })
-    })    
-    };
-    
-    getWeather();
-
-    }, [memoizedDate]);
+  }, [data]);
 
   return (
     !loading ? 
-      <Layout >
+      <Layout>
+        <Illustration backgroundImage={backgroundImage} />
         <Header />
         <Container>
-          <CurrentWeather data = {data} season = {season} date = {memoizedDate}/>
-          <DailyWeather data = {data} season = {season} date = {memoizedDate} />
+          <CurrentWeather data={data} season={season} date={memoizedDate} />
+          <DailyWeather data={data} season={season} date={memoizedDate} />
         </Container>
       </Layout> :
       <Loader />
